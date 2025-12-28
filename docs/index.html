@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+  <head>
+    <base href="./"/>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Bank Statement Processor</title>
+    <meta content="#52837B" name="theme-color"/>
+    <link href="https://fonts.googleapis.com" rel="preconnect"/>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&amp;display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="./assets/css/portfolio.css"/>
+    <meta name="description" content="Merge multiple Excel bank statement exports into one clean, analysis-ready workbook."/>
+  </head>
+  <body>
+    <main class="container">
+      <h1>Bank Statement Processor</h1>
+      <p class="lead">A lightweight Python utility that consolidates multiple Excel bank statement exports into one clean workbook — ready for filtering, reconciliation, and analysis.</p>
+
+      <h2 id="quick-start">Quick start</h2>
+      <pre><code>cd run
+python -m venv .venv
+pip install -r ../requirements.txt
+python bank_statement_processor.py</code></pre>
+      <p>The output file <code>consolidated_statements.xlsx</code> is created in the same folder (<code>run/</code>).</p>
+
+      <h2>What you get</h2>
+      <ul>
+        <li>One sheet: <strong>Transactions</strong></li>
+        <li>One row per transaction</li>
+        <li><code>Source_Bank</code> column for traceability (derived from the input filename)</li>
+      </ul>
+
+      <h2>Documentation</h2>
+      <ul>
+        <li><a href="methodology.html">Methodology</a></li>
+        <li><a href="reference/architecture.md">Architecture</a></li>
+        <li><a href="reference/case_study.md">Case study</a></li>
+        <li><a href="reference/supported_formats.md">Supported formats</a></li>
+      </ul>
+
+      <p class="muted">Note: statement files are intentionally ignored by <code>.gitignore</code> so you can keep the repo public without leaking client data.</p>
+    </main>
+  </body>
+</html>

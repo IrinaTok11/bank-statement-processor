@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+  <head>
+    <base href="./"/>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Methodology — Bank Statement Processor</title>
+    <meta content="#52837B" name="theme-color"/>
+    <link href="https://fonts.googleapis.com" rel="preconnect"/>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&amp;display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="./assets/css/portfolio.css"/>
+    <meta name="description" content="How the processor detects columns, normalises data, and produces a consolidated workbook."/>
+  </head>
+  <body>
+    <main class="container">
+      <h1>Methodology</h1>
+      <p class="lead">The processor follows a simple, deterministic pipeline: detect → normalise → merge → export.</p>
+
+      <h2>1) Detect columns</h2>
+      <p>For each input file, the script detects the key fields by keyword matching (case‑insensitive): date, description/payee, and amount columns.</p>
+
+      <h2>2) Normalise data</h2>
+      <ul>
+        <li><strong>Dates</strong> are parsed into a consistent <code>Date</code> column so files can be merged and sorted.</li>
+        <li><strong>Amounts</strong> are parsed from either debit/credit columns or a single amount column.</li>
+        <li><strong>Service rows</strong> (totals, opening/closing lines) are filtered using common keywords.</li>
+        <li><strong>Traceability</strong> is added via <code>Source_Bank</code> (the input filename without extension).</li>
+      </ul>
+
+      <h2>3) Merge and export</h2>
+      <p>All processed rows are appended into a single table, sorted by date, and written to <code>consolidated_statements.xlsx</code> (sheet: <strong>Transactions</strong>).</p>
+
+      <h2>Practical tips</h2>
+      <ul>
+        <li>Run the script from <code>run/</code> and keep only the statements you want to merge in that folder.</li>
+        <li>If one bank export fails, open it and rename headers to include clear keywords like “date”, “description”, “debit”, “credit”, or “amount”.</li>
+      </ul>
+
+      <p class="muted">See the reference pages for format notes and a high‑level architecture diagram.</p>
+    </main>
+  </body>
+</html>
